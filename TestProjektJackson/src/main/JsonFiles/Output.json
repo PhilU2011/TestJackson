@@ -1,0 +1,8 @@
+{
+"Entity" : "Person" ,
+"PropOne" :"String" ,
+"PropTwo" :"Number" ,
+"id" : 3,
+"HasName" :false ,
+"date" :"25-12-2019" 
+}
