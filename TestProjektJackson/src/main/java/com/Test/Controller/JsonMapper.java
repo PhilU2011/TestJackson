@@ -2,7 +2,9 @@ package com.Test.Controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
+import com.Test.Model.BookPojo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.exc.StreamWriteException;
 import com.fasterxml.jackson.databind.DatabindException;
@@ -56,6 +58,27 @@ public class JsonMapper {
 		return datei;		
 	}
 	
+	
+	// Ein Json File lesen
+	public static ArrayList<BookPojo> readJson (String filename) throws IOException {
+		ArrayList<BookPojo> x = new ArrayList<BookPojo> ();
+		
+		//BookPojo book = mapper.readerFor(BookPojo.class).readValue(filename);
+		BookPojo book = mapper.readValue(new File(filename), BookPojo.class);
+		x.add(book);
+		return x;
+	}
+	// mehrere Json Files lesen
+		public static  ArrayList<BookPojo> readJsonFiles (String [] filename) throws IOException {
+			ArrayList<BookPojo> x = new ArrayList<BookPojo> ();
+			
+			for (int i=0; i<filename.length; i++) {
+				BookPojo objekt = mapper.readValue(new File(filename[i]), BookPojo.class);
+				x.add(objekt);
+				}
+			return x;
+		}
+
 	
 	
 }

@@ -3,6 +3,8 @@ package com.Test.Controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.ListIterator;
 
 import javax.ws.rs.core.MediaType;
 
@@ -125,4 +127,48 @@ public class Controller {
 		return out;
 		
 	}
+	
+	
+	@RequestMapping(value="/startAppSeven")
+	@ResponseBody 
+	public String startApp7() throws IOException {
+		
+		String src= "src/main/JsonFiles/aut.json";				
+		
+		String out="";
+		
+		ArrayList<BookPojo> x = JsonMapper.readJson(src);
+		ListIterator<BookPojo> iter = x.listIterator();
+		
+		while(iter.hasNext()) {
+			BookPojo book = iter.next();
+			out= out + " " + book.getAuthor() + "/" + book.getBooks() + "/" + book.getHobbies();
+		}
+		
+		return out;
+		
+	}
+	
+	@RequestMapping(value="/startAppEight")
+	@ResponseBody 
+	public String startApp8() throws IOException {
+		
+		String [] src= new String [2]; 
+		src[0]="src/main/JsonFiles/aut.json";				
+		src[1]="src/main/JsonFiles/aut2.json";
+		String out="";
+		
+		ArrayList<BookPojo> x = JsonMapper.readJsonFiles(src);
+		ListIterator<BookPojo> iter = x.listIterator();
+		
+		while(iter.hasNext()) {
+			BookPojo book = iter.next();
+			out= out + " " + book.getAuthor() + "/" + book.getBooks() + "/" + book.getHobbies() + "\n";
+		}
+		
+		return out;
+		
+	}
+	
+	
 }
