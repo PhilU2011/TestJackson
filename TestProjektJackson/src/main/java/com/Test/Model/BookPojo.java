@@ -24,12 +24,17 @@ public class BookPojo {
 	}
 
 
-	public String getBooks() {
-		String out="";
+	public String [] getBooks() {
+		String out="[";
 		for (int i=0; i<books.length; i++) {
-		out = out + " " + books[i].toString();	
-		}
-		return out;
+			if (i==books.length-1) {
+				out = out + " " + books[i].toString();
+			} else {
+				out = out + " " + books[i].toString() + ",";	
+				}
+		}	
+		out=out + "]";
+		return this.books;
 	}
 
 
@@ -38,18 +43,19 @@ public class BookPojo {
 	}
 
 
-	public String getHobbies() {
+	public List<HobbyPojo> getHobbies() {
+		
 		ListIterator<HobbyPojo> iter = hobbies.listIterator();
 		String out="{";
 		while (iter.hasNext()) {
 			//System.out.println("Ja." + iter.next().getName() + iter.next().getAction() );
 			HobbyPojo po = iter.next();
 			out= out + "\"" + po.getName() +"\"" + "," + "\"" + po.getAction() +"\"" ;
-			System.out.println(out);
+			//System.out.println(out);
 		}
 		
 		out=out +"}";
-		return out;
+		return this.hobbies;
 	}
 
 

@@ -1,0 +1,14 @@
+{ "author" : "Georg" ,
+"books" : ["Also sprach" ," Zauberberg" , "Oh my Gosh"] ,
+"hobbies" : [
+{ "name" : "Surfing" ,
+"action" : 5
+} ,
+{ "name" : "Skateing" ,
+"action" : 7
+},
+{ "name" : "Nooo" ,
+"action" : 12
+}
+]
+}

@@ -1,0 +1,123 @@
+{
+  "rootElement" : {
+    "name": "Person",
+    "nodeType": "OBJECT",
+    "properties_size": 9,
+    "properties": [
+      {
+        "name": "birthday",
+        "nodeType": "STRING",
+        "size": 0,
+        "children": [],
+        "meta": {
+          "count": 10,
+          "missed": 0
+        }
+      },
+      {
+        "name": "hasInterest",
+        "nodeType": "ARRAY",
+        "size": 2,
+        "children": [
+          {
+            "name": "[*]",
+            "nodeType": "NUMBER",
+            "size": 0,
+            "children": [],
+            "meta": {
+              "count": 66,
+              "missed": 0
+            }
+          }
+        ],
+        "meta": {
+          "count": 10,
+          "missed": 0
+        }
+      },
+      {
+        "name": "firstName",
+        "nodeType": "STRING",
+        "size": 0,
+        "children": [],
+        "meta": {
+          "count": 10,
+          "missed": 0
+        }
+      },
+      {
+        "name": "lastName",
+        "nodeType": "STRING",
+        "size": 0,
+        "children": [],
+        "meta": {
+          "count": 10,
+          "missed": 0
+        }
+      },
+      {
+        "name": "gender",
+        "nodeType": "STRING",
+        "meta_info": {
+          "count": 8,
+          "missed": 2
+        }
+      },
+      {
+        "name": "id",
+        "nodeType": "NUMBER",
+        "size": 0,
+        "children": [],
+        "meta": {
+          "count": 10,
+          "missed": 0
+        }
+      },
+      {
+        "name": "email",
+        "nodeType": "STRING",
+        "size": 0,
+        "children": [],
+        "meta": {
+          "count": 10,
+          "missed": 0
+        }
+      },
+      {
+        "name": "ts",
+        "nodeType": "NUMBER",
+        "size": 0,
+        "children": [],
+        "meta": {
+          "count": 10,
+          "missed": 0
+        }
+      },
+      {
+        "name": "knows",
+        "nodeType": "ARRAY",
+        "size": 6,
+        "children": [
+          {
+            "name": "[*]",
+            "nodeType": "NUMBER",
+            "size": 0,
+            "children": [],
+            "meta": {
+              "count": 246,
+              "missed": 0
+            }
+          }
+        ],
+        "meta": {
+          "count": 10,
+          "missed": 0
+        }
+      }
+    ],
+    "meta_info": {
+      "count": 10,
+      "missed": 0
+    }
+  }
+}

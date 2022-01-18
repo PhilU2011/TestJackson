@@ -8,7 +8,9 @@ import java.util.ListIterator;
 
 import javax.ws.rs.core.MediaType;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -133,9 +135,9 @@ public class Controller {
 	@ResponseBody 
 	public String startApp7() throws IOException {
 		
-		String src= "src/main/JsonFiles/aut.json";				
-		
+		//String src= "newFile5.json";				
 		String out="";
+		String src="newXX.json";
 		
 		ArrayList<BookPojo> x = JsonMapper.readJson(src);
 		ListIterator<BookPojo> iter = x.listIterator();
@@ -149,13 +151,21 @@ public class Controller {
 		
 	}
 	
-	@RequestMapping(value="/startAppEight")
+	@RequestMapping(value="/startAppEight/{no}/{name}")
 	@ResponseBody 
-	public String startApp8() throws IOException {
+	public String startApp8(@PathVariable String no, @PathVariable String name) throws IOException {
 		
-		String [] src= new String [2]; 
-		src[0]="src/main/JsonFiles/aut.json";				
-		src[1]="src/main/JsonFiles/aut2.json";
+		int anzahl= Integer.parseInt(no);
+		String [] src= new String [anzahl]; 
+		
+		for (int i=0; i<src.length; i++) {
+			if (i==0) {
+				src[i]="src/main/JsonFiles/aut.json";}
+			else {
+				src[i]="src/main/JsonFiles/aut" + i + ".json";
+			}
+		//src[1]="src/main/JsonFiles/aut2.json";
+		}
 		String out="";
 		
 		ArrayList<BookPojo> x = JsonMapper.readJsonFiles(src);
@@ -166,9 +176,29 @@ public class Controller {
 			out= out + " " + book.getAuthor() + "/" + book.getBooks() + "/" + book.getHobbies() + "\n";
 		}
 		
+		name=name+".json";
+		JsonMapper.writeJson(x, name);
+		
 		return out;
 		
 	}
 	
 	
+	@RequestMapping(value="/startAppNine")
+	@ResponseBody 
+	public String startAppNine() throws IOException {
+		
+		String [] src= new String [1]; 
+		
+		for (int i=0; i<src.length; i++) {
+			if (i==0) {
+				src[i]="src/main/JsonFiles/aut.json";}
+			else {
+				src[i]="src/main/JsonFiles/aut" + i + ".json";
+			}
+		}
+		String name="newXX.json";
+		
+		return JsonMapper.readAndWrite(src, name);
+	}
 }

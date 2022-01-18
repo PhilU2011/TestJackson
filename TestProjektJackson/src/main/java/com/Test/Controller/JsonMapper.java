@@ -1,5 +1,7 @@
 package com.Test.Controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -80,5 +82,36 @@ public class JsonMapper {
 		}
 
 	
-	
+	//Mehrere JSON Files als Tree lesen
+		
+		public static String readAndWrite (String [] filenames, String newName) throws IOException {
+			JsonNode [] nd = new JsonNode[filenames.length];
+			
+			for (int i=0; i<filenames.length; i++) {
+				nd[i]=mapper.readTree(new File (filenames[i]));
+			}
+			
+			ArrayList<BookPojo> list = new ArrayList<BookPojo>();
+			
+			String output="";
+			for(int i=0; i<nd.length; i++) {
+				BookPojo bk = mapper.treeToValue(nd[i], BookPojo.class);
+				list.add(bk);
+				output=output + i + ")" + bk.getAuthor() + bk.getBooks() + bk.getHobbies(); 
+			}
+			
+			mapper.writerWithDefaultPrettyPrinter().writeValue(new File (newName), nd);
+			
+			//ObjectWriter writer = mapper.writer();
+			//writer=writer.with(SerializationFeature.INDENT_OUTPUT);
+			
+			//output = output + writer.withDefaultPrettyPrinter().writeValueAsString(nd);
+			
+			
+			
+			return output;			
+			
+		}
+		
+		
 }

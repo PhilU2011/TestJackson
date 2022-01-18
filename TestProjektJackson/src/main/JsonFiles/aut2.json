@@ -1,14 +1,17 @@
-{ "author" : "Georg" ,
-"books" : ["Also sprach" ," Zauberberg" , "Oh my Gosh"] ,
+{ "author" : "Karl" ,
+"books" : ["Bibel" ," Faust" , "Kochbuch"] ,
 "hobbies" : [
-{ "name" : "Surfing" ,
-"action" : 5
-} ,
-{ "name" : "Skateing" ,
-"action" : 7
-},
-{ "name" : "Nooo" ,
+{ "name" : "Badminton" ,
 "action" : 12
+} ,
+{ "name" : "Skiing" ,
+"action" : 11
+},
+{ "name" : "Mountainbike" ,
+"action" : 15
+},
+{ "name" : "Hikking" ,
+"action" : 20
 }
 ]
 }
