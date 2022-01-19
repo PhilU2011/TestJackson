@@ -131,23 +131,13 @@ public class Controller {
 	}
 	
 	
-	@RequestMapping(value="/startAppSeven")
+	@RequestMapping(value="/startAppSeven/{name}")
 	@ResponseBody 
-	public String startApp7() throws IOException {
+	public String startApp7(@PathVariable String name) throws IOException {
+				
+		String src=name + ".json";
 		
-		//String src= "newFile5.json";				
-		String out="";
-		String src="newXX.json";
-		
-		ArrayList<BookPojo> x = JsonMapper.readJson(src);
-		ListIterator<BookPojo> iter = x.listIterator();
-		
-		while(iter.hasNext()) {
-			BookPojo book = iter.next();
-			out= out + " " + book.getAuthor() + "/" + book.getBooks() + "/" + book.getHobbies();
-		}
-		
-		return out;
+		return JsonMapper.readJsonTree(src);
 		
 	}
 	
@@ -184,11 +174,12 @@ public class Controller {
 	}
 	
 	
-	@RequestMapping(value="/startAppNine")
+	@RequestMapping(value="/startAppNine/{no}/{name}")
 	@ResponseBody 
-	public String startAppNine() throws IOException {
+	public String startAppNine(@PathVariable String no, @PathVariable String name) throws IOException {
 		
-		String [] src= new String [1]; 
+		int anzahl = Integer.parseInt(no);
+		String [] src= new String [anzahl]; 
 		
 		for (int i=0; i<src.length; i++) {
 			if (i==0) {
@@ -197,7 +188,7 @@ public class Controller {
 				src[i]="src/main/JsonFiles/aut" + i + ".json";
 			}
 		}
-		String name="newXX.json";
+		name= name + ".json";
 		
 		return JsonMapper.readAndWrite(src, name);
 	}

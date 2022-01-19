@@ -1,0 +1,11 @@
+[ {
+  "author" : "Hans",
+  "books" : [ "John", " Dee" ],
+  "hobbies" : [ {
+    "name" : "Surf",
+    "action" : 5
+  }, {
+    "name" : "Skate",
+    "action" : 7
+  } ]
+} ]

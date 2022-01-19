@@ -1,0 +1,40 @@
+[ {
+  "author" : "Hans",
+  "books" : [ "John", " Dee" ],
+  "hobbies" : [ {
+    "name" : "Surf",
+    "action" : 5
+  }, {
+    "name" : "Skate",
+    "action" : 7
+  } ]
+}, {
+  "author" : "Georg",
+  "books" : [ "Also sprach", " Zauberberg", "Oh my Gosh" ],
+  "hobbies" : [ {
+    "name" : "Surfing",
+    "action" : 5
+  }, {
+    "name" : "Skateing",
+    "action" : 7
+  }, {
+    "name" : "Nooo",
+    "action" : 12
+  } ]
+}, {
+  "author" : "Karl",
+  "books" : [ "Bibel", " Faust", "Kochbuch" ],
+  "hobbies" : [ {
+    "name" : "Badminton",
+    "action" : 12
+  }, {
+    "name" : "Skiing",
+    "action" : 11
+  }, {
+    "name" : "Mountainbike",
+    "action" : 15
+  }, {
+    "name" : "Hikking",
+    "action" : 20
+  } ]
+} ]

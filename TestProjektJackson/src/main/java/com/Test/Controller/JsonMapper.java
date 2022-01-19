@@ -5,6 +5,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.ListIterator;
 
 import com.Test.Model.BookPojo;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -97,21 +98,42 @@ public class JsonMapper {
 			for(int i=0; i<nd.length; i++) {
 				BookPojo bk = mapper.treeToValue(nd[i], BookPojo.class);
 				list.add(bk);
-				output=output + i + ")" + bk.getAuthor() + bk.getBooks() + bk.getHobbies(); 
+				//output=output + i + ")" + bk.getAuthor() + bk.getBooks().toString() + bk.getHobbies().toString(); 
 			}
 			
+			//write File
 			mapper.writerWithDefaultPrettyPrinter().writeValue(new File (newName), nd);
 			
-			//ObjectWriter writer = mapper.writer();
-			//writer=writer.with(SerializationFeature.INDENT_OUTPUT);
-			
-			//output = output + writer.withDefaultPrettyPrinter().writeValueAsString(nd);
-			
-			
-			
+			for (int j=0; j<nd.length; j++) {
+				ObjectWriter writer = mapper.writer();
+				//writer=writer.with(SerializationFeature.INDENT_OUTPUT);
+				output =output +  writer.withDefaultPrettyPrinter().writeValueAsString(nd[j]) + System.lineSeparator();
+			}
+				
 			return output;			
 			
 		}
 		
+		// ein JSON File als Tree lesen
+		
+		public static String readJsonTree (String filename) throws IOException {
+			JsonNode node = mapper.readTree(new File(filename));
+			String output = JsonMapper.JsonToString(node);
+			
+			ArrayList<BookPojo> x = new ArrayList<BookPojo> ();
+			
+			BookPojo book = mapper.treeToValue(node, BookPojo.class);
+			x.add(book);
+			ListIterator<BookPojo> iter = x.listIterator();
+			
+			while (iter.hasNext()) {
+			BookPojo bk = iter.next();	
+			System.out.println(bk.getAuthor());
+			System.out.println(bk.getBooks());
+			System.out.println(bk.getHobbies());
+			}
+			
+			return output;
+		}
 		
 }
