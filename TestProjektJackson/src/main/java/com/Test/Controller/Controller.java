@@ -20,6 +20,8 @@ import com.Test.Controller.JsonMapper;
 import com.Test.Model.BookPojo;
 import com.Test.Model.SchemaPojo;
 import com.Test.Model.TestPojo;
+import com.Test.ModelZwei.Entity;
+import com.Test.ModelZwei.Root;
 import com.fasterxml.jackson.databind.JsonNode;
 
 @RestController
@@ -192,4 +194,43 @@ public class Controller {
 		
 		return JsonMapper.readAndWrite(src, name);
 	}
+
+	
+	@RequestMapping(value="/startAppTen/{name}")
+	@ResponseBody 
+	public String startAppTen(@PathVariable String name) throws IOException {
+		
+		name= name + ".json";
+		
+		return JsonMapper.readJsonArray(name);
+	}
+	
+	
+	@RequestMapping(value="/startAppEleven/{name}")
+	@ResponseBody 
+	public String startAppEleven(@PathVariable String name) throws IOException {
+		
+		name= "src/main/JsonFiles/" + name + ".json";
+		
+		return JsonMapper.readJsonTreeModel(name);
+	}
+	
+	
+	@RequestMapping(value="/startAppTwelve/{name}")
+	@ResponseBody 
+	public String startAppTwelve(@PathVariable String name) throws IOException {
+		
+		name= "src/main/JsonFiles/" + name + ".json";
+		
+		Root x =JsonMapper.readJsonTreeModel(name, Root.class);
+		
+		String out="";
+		out = x.getRootElement().getName() + " " + x.getRootElement().getNodeType() + " " + x.getRootElement().getProperties_size();
+		
+		return out;
+		
+		
+	}
+	
+	
 }

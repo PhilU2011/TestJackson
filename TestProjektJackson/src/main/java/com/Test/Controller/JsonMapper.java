@@ -135,5 +135,51 @@ public class JsonMapper {
 			
 			return output;
 		}
+
+		
+		//Json File als Array lesen
+		
+
+		public static String readJsonArray (String filename) throws IOException {
+			JsonNode node = mapper.readTree(new File(filename));
+			String output = JsonMapper.JsonToString(node);
+			
+			ArrayList<BookPojo []> x = new ArrayList<BookPojo []> ();
+			
+			BookPojo [] book = mapper.treeToValue(node, BookPojo [].class);
+			x.add(book);
+			ListIterator<BookPojo []> iter = x.listIterator();
+			
+			while (iter.hasNext()) {
+				BookPojo [] bk = iter.next();	
+			
+				for (int z=0; z<bk.length; z++) {
+			
+				System.out.println(bk[z].getAuthor());
+				System.out.println(bk[z].getBooks());
+				System.out.println(bk[z].getHobbies());
+				}
+			}
+			
+			return output;
+		}
+		
+		
+		// Zweites Modell einlesen
+		public static <A> String readJsonTreeModel (String filename) throws IOException {
+			JsonNode node = mapper.readTree(new File(filename));
+			String output = JsonMapper.JsonToString(node);
+			
+			return output;
+		}
+
+		public static <A> A readJsonTreeModel (String filename, Class<A> cl) throws IOException {
+			
+			JsonNode node = mapper.readTree(new File(filename));
+			A root = mapper.treeToValue(node, cl);
+			
+			return root;
+			
+		}
 		
 }
