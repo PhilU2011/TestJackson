@@ -1,10 +1,13 @@
 package com.Test.ModelZwei;
 
+import java.util.ArrayList;
+
 public class Entity {
 
 	private String name;
 	private String nodeType;
 	private int properties_size;
+	private ArrayList<Property> properties;
 	
 	
 	public Entity () {};
@@ -27,5 +30,14 @@ public class Entity {
 	public void setProperties_size(int properties_size) {
 		this.properties_size = properties_size;
 	}
+	
+	public ArrayList<Property> getProperties() {
+		return properties;
+	}
+
+	public void setProperties(ArrayList<Property> properties) {
+		this.properties = properties;
+	}
+	
 	
 }

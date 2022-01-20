@@ -1,0 +1,82 @@
+{
+  "rootElement" : {
+    "name": "Person",
+    "nodeType": "OBJECT",
+    "properties_size": 9,
+    "properties": [
+      {
+        "name": "birthday",
+        "nodeType": "STRING",
+        "size": 0,
+        "children": [],
+        "meta": {
+          "count": 10,
+          "missed": 0
+        }
+      },
+      {
+        "name": "hasInterest",
+        "nodeType": "ARRAY",
+        "size": 2,
+        "children": [
+          {
+            "name": "[A]",
+            "nodeType": "NUMBER",
+            "size": 0,
+            "children": [],
+            "meta": {
+              "count": 66,
+              "missed": 0
+            }
+          }, 
+          {
+            "name": "B",
+            "nodeType": "NUMBER",
+            "size": 0,
+            "children": [
+            {
+            "name": "[B.1]",
+            "nodeType": "NUMBER",
+            "size": 0,
+            "children": [
+            {"name": "[B.1.1]",
+            "nodeType": "String",
+            "size": 0,
+            "children":[]
+            },
+            {"name": "[B.1.2]",
+            "nodeType": "String",
+            "size": 0,
+            "children":[]
+            }
+            ],
+            "meta": {
+              "count": 66,
+              "missed": 0
+            }
+            }
+            ],
+            "meta": {
+              "count": 66,
+              "missed": 0
+            }
+          }
+        ],
+        "meta": {
+          "count": 10,
+          "missed": 0
+        }
+      },
+      {
+        "name": "firstName",
+        "nodeType": "STRING",
+        "size": 0,
+        "children": [],
+        "meta": {
+          "count": 10,
+          "missed": 0
+        }
+       }
+       ]
+   	}
+   }

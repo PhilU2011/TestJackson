@@ -16,11 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.Test.Controller.JsonMapper;
 import com.Test.Model.BookPojo;
 import com.Test.Model.SchemaPojo;
 import com.Test.Model.TestPojo;
 import com.Test.ModelZwei.Entity;
+import com.Test.ModelZwei.Property;
 import com.Test.ModelZwei.Root;
 import com.fasterxml.jackson.databind.JsonNode;
 
@@ -223,14 +225,24 @@ public class Controller {
 		name= "src/main/JsonFiles/" + name + ".json";
 		
 		Root x =JsonMapper.readJsonTreeModel(name, Root.class);
-		
 		String out="";
-		out = x.getRootElement().getName() + " " + x.getRootElement().getNodeType() + " " + x.getRootElement().getProperties_size();
+		PropertyRek rek = new PropertyRek();
+		
+		rek.rekAlg(x);
+		
+		//System.out.println("Entity: " + out);
+		
+		out ="Entity:" + x.getRootElement().getName() + " " + x.getRootElement().getNodeType() + " " + x.getRootElement().getProperties_size();
+		
+		
+		// über JsonNode
+		JsonNode nd = JsonMapper.getMapper().readTree(new File(name));
+		String aus = JsonMapper.JsonToString(nd);
+		System.out.println(aus);
 		
 		return out;
+		}
 		
-		
-	}
-	
-	
 }
+	
+	
